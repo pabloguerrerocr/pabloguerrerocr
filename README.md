@@ -86,6 +86,22 @@ World Bank and IMF data refreshed **automatically every month** by GitHub Action
 with internal consistency checks that stop the pipeline if the source contradicts
 itself.
 
+**[Automated monthly bookkeeping close from Costa Rica's electronic invoices](https://github.com/pabloguerrerocr/contaflow)**
+A folder of Hacienda XML invoices (versions 4.3 and 4.4) goes in; the Excel the
+client signs and the figure for VAT Form 150 come out. Rule-based classification,
+double-entry journal with input and output VAT kept apart, and one invariant: the
+journal imbalance must be **0.00**. On the demo set (88 documents, 149 lines)
+**94 %** is automated; anything no rule recognises goes to a suspense account and
+an exceptions sheet — the tool warns instead of guessing.
+
+**[Backtest audit: how much return survives costs, overfitting and look-ahead](https://github.com/pabloguerrerocr/backtester-mt5)**
+Five popular trading models turned into mechanical rules and measured on five
+markets with real MetaTrader 5 data and retail costs. **0 of 25** author
+configurations show a statistical edge after costs; across **1,120** variants,
+in-sample and out-of-sample results correlate at **+0.09**, and 11 of the 14 best
+variants lose out of sample. Along the way: a demo price feed frozen for three
+months, detected and excluded with an objective rule. 44 automated tests.
+
 ---
 
 ### Tools
@@ -192,6 +208,23 @@ que la economía en 2026, así que el ingreso por persona cae. 234 países, 18
 indicadores, datos del Banco Mundial y el FMI que se **actualizan solos cada mes** con
 GitHub Actions, con chequeos de coherencia que detienen el proceso si la fuente se
 contradice.
+
+**[Cierre contable mensual automatizado desde la factura electrónica](https://github.com/pabloguerrerocr/contaflow)**
+Entra una carpeta de XML de Hacienda (versiones 4.3 y 4.4); sale el Excel que el
+cliente firma y el número del Formulario 150 de IVA. Clasificación por reglas,
+partida doble con IVA acreditable y por pagar separados, y un invariante: el
+descuadre del diario tiene que dar **0,00**. En el set de demo (88 comprobantes,
+149 líneas) se automatiza el **94 %**; lo que ninguna regla reconoce va a una
+cuenta puente y a una hoja de excepciones: la herramienta avisa en vez de adivinar.
+
+**[Auditoría de backtests: cuánto retorno sobrevive a costos, sobreajuste e información futura](https://github.com/pabloguerrerocr/backtester-mt5)**
+Cinco modelos de trading populares llevados a reglas mecánicas y medidos en cinco
+mercados con datos reales de MetaTrader 5 y costos retail. **0 de 25**
+configuraciones de autor tienen ventaja estadística después de costos; en
+**1.120** variantes, el resultado dentro y fuera de muestra correlaciona a
+**+0,09**, y 11 de las 14 mejores variantes pierden fuera de muestra. En el camino:
+un feed de precios de la demo congelado tres meses, detectado y excluido con una
+regla objetiva. 44 pruebas automatizadas.
 
 ### Herramientas
 
