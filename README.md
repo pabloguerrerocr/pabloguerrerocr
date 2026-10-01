@@ -124,7 +124,7 @@ Johansen), Granger causality, regression models.
   finding, not a failure to hide.
 - Public data only, with reproducible downloads from the code itself.
 
-📍 Costa Rica · Native Spanish, C1 English
+📍 Heredia, Costa Rica · Native Spanish, C1 English
 [LinkedIn](https://linkedin.com/in/pabloguerrerocr) · pabloguerrerocr@gmail.com
 
 ---
@@ -244,5 +244,5 @@ inversión extranjera directa, cuentas internacionales.
   hallazgo, no un fracaso que esconder.
 - Datos públicos, con descarga reproducible desde el propio código.
 
-📍 Costa Rica · Español nativo, inglés C1
+📍 Heredia, Costa Rica · Español nativo, inglés C1
 [LinkedIn](https://linkedin.com/in/pabloguerrerocr) · pabloguerrerocr@gmail.com
