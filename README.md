@@ -20,7 +20,7 @@ gaps.
 
 ### Projects
 
-**U.S. shocks and Costa Rica's external sector, 2015–2025** *(private — thesis in progress)*
+**[U.S. shocks and Costa Rica's external sector, 2015–2025](https://github.com/pabloguerrerocr/sector-externo-cr-eeuu)** · [interactive dashboard](https://pabloguerrerocr.github.io/tfg/) · [2-page summary](https://pabloguerrerocr.github.io/tfg/resumen.pdf) *(thesis)*
 Does Costa Rica feel the United States through trade or through the Fed's policy
 rate? Three VAR/VECM blocks on public data from FRED and the Central Bank of
 Costa Rica. **The financial channel dominates the real one in all 14**
@@ -29,7 +29,9 @@ variable-horizon combinations. At 24 months, the federal funds rate explains
 effective exchange rate; the U.S. industrial cycle explains 3.3 % and 4.5 %.
 Unit root tests flagging ambiguous cases, Engle-Granger and Johansen
 cointegration, Granger causality, bootstrapped impulse responses and variance
-decomposition. Reproducible end to end.
+decomposition. Robust to the Cholesky ordering: with the order-invariant
+generalized decomposition (Pesaran–Shin) the financial channel still dominates
+in **14 of 14** combinations. Reproducible end to end.
 
 **[Data warehouse and quality engine for macro time series](https://github.com/pabloguerrerocr/warehouse-sector-externo)**
 DuckDB star schema over a macroeconomic panel, with **proof that moving the data into
@@ -144,7 +146,7 @@ tiempo, estadística oficial y preguntas que terminan en una decisión, no en un
 
 ### Proyectos
 
-**EE. UU. y el sector externo de Costa Rica, 2015–2025** *(privado — TFG en curso)*
+**[EE. UU. y el sector externo de Costa Rica, 2015–2025](https://github.com/pabloguerrerocr/sector-externo-cr-eeuu)** · [tablero interactivo](https://pabloguerrerocr.github.io/tfg/) · [resumen de 2 páginas](https://pabloguerrerocr.github.io/tfg/resumen.pdf) *(TFG)*
 ¿Costa Rica siente a Estados Unidos por el comercio o por la tasa de la Fed? Tres
 bloques VAR/VECM sobre datos de FRED y del portal público del BCCR. **El canal
 financiero domina al real en las 14 combinaciones de variable y horizonte.** A 24
@@ -152,7 +154,9 @@ meses, la tasa de fondos federales explica el **44,4 %** de la varianza de las
 reservas internacionales y el **43,2 %** del tipo de cambio efectivo real; el ciclo
 industrial estadounidense, 3,3 % y 4,5 %. Pipeline completo: ADF y KPSS marcando
 las filas ambiguas, Engle-Granger y Johansen, causalidad de Granger,
-impulso-respuesta con banda bootstrap y descomposición de varianza.
+impulso-respuesta con banda bootstrap y descomposición de varianza. Robusto al orden
+de Cholesky: con la descomposición generalizada (Pesaran-Shin), que no depende del
+orden, el canal financiero domina igual en las **14** combinaciones.
 
 **[Warehouse y motor de calidad para series macro](https://github.com/pabloguerrerocr/warehouse-sector-externo)**
 Esquema estrella en DuckDB sobre un panel macroeconómico, con **la prueba de que pasar
