@@ -76,7 +76,19 @@ everyone publishes — but only **6.5 %** against the historical mean, which is 
 one that decides whether the model adds anything. An earlier version showed
 +13.7 %; excluding 2020 it collapsed to +0.6 %, so the entire result was the
 pandemic. Both numbers are in the README, with the R² of 0.154 and the quarter
-the model missed by 8.7 points.
+the model missed by 8.7 points. Ridge, LASSO, Random Forest and Gradient Boosting,
+retrained every quarter with time-series cross-validation, **do not beat the
+two-variable regression** with statistical significance (Diebold-Mariano,
+p ≥ 0.32), and an R replica (dplyr, ggplot2) reproduces it quarter by quarter in CI.
+
+**[Credit card fraud: accuracy lies, so measure it in money]({F})**
+On 284,807 real card transactions, never raising an alert is **99.87 %** accurate
+and saves nothing. With a time-based split and Gradient Boosting, alerting when
+probability × amount exceeds a €15 review cost saves **62.0 %** of fraud losses
+against **54.5 %** for the best single threshold (95 % CI of the gap: +€379 to
++€782), while catching *fewer* frauds. The default 0.5 threshold nearly halves
+the savings of a logistic regression. At €1 and €5 per review the gap is not
+significant, and the README says so.
 
 **[World population and economy atlas, 2026](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/poblacion-mundial)** · [interactive atlas](https://pabloguerrerocr.github.io/atlas/)
 Low and lower-middle income countries hold **45 %** of the world's population and
@@ -106,11 +118,12 @@ months, detected and excluded with an objective rule. 44 automated tests.
 
 ### Tools
 
-`Python` · `pandas` · `numpy` · `statsmodels` · `SQL` · `DuckDB` · `dbt` · `Power BI` ·
+`Python` · `pandas` · `numpy` · `statsmodels` · `scikit-learn` · `R` · `SQL` · `DuckDB` · `dbt` · `Power BI` ·
 `Excel / Power Query` · `D3.js` · `GitHub Actions` · `Git`
 
 **Methods:** time series, VAR/VECM, cointegration tests (Engle-Granger,
-Johansen), Granger causality, regression models.
+Johansen), Granger causality, regression models, machine learning
+(regularization, tree ensembles, time-series cross-validation, imbalanced classification).
 
 **Official statistics:** balance of payments (BPM6), OECD Benchmark Definition
 (BD4), foreign direct investment, international accounts.
@@ -199,7 +212,19 @@ OCDE. El nowcast reduce el error **30,6 %** frente a repetir el trimestre anteri
 que es el que decide si el modelo aporta algo. Una versión previa daba +13,7 %;
 excluyendo 2020 caía a +0,6 %, o sea que todo el resultado era la pandemia. Ambos
 números están en el README, con el R² de 0,154 y el trimestre que el modelo erró
-por 8,7 puntos.
+por 8,7 puntos. Ridge, LASSO, Random Forest y Gradient Boosting, reentrenados cada
+trimestre con validación cruzada de series de tiempo, **no le ganan a la regresión
+de dos variables** con significancia (Diebold-Mariano, p ≥ 0,32), y una réplica en R
+(dplyr, ggplot2) la reproduce trimestre por trimestre en GitHub Actions.
+
+**[Fraude con tarjeta: la exactitud engaña, hay que medir en dinero](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/deteccion-fraude)**
+Sobre 284.807 transacciones reales, no alertar nunca acierta el **99,87 %** y no
+ahorra nada. Con partición temporal y Gradient Boosting, alertar cuando
+probabilidad × monto supera un costo de revisión de €15 ahorra el **62,0 %** del
+fraude, contra **54,5 %** del mejor umbral único (IC 95 % de la diferencia: +€379 a
++€782), aunque detecta *menos* fraudes. El umbral de fábrica de 0,5 casi reduce a
+la mitad el ahorro de una regresión logística. Con €1 y €5 por revisión la
+diferencia no es significativa, y el README lo dice.
 
 **[Atlas de población y economía 2026](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/poblacion-mundial)** · [atlas interactivo](https://pabloguerrerocr.github.io/atlas/)
 Los países de ingreso bajo y medio-bajo tienen el **45 %** de la población mundial y
@@ -228,11 +253,12 @@ regla objetiva. 44 pruebas automatizadas.
 
 ### Herramientas
 
-`Python` · `pandas` · `numpy` · `statsmodels` · `SQL` · `DuckDB` · `dbt` · `Power BI` ·
+`Python` · `pandas` · `numpy` · `statsmodels` · `scikit-learn` · `R` · `SQL` · `DuckDB` · `dbt` · `Power BI` ·
 `Excel / Power Query` · `D3.js` · `GitHub Actions` · `Git`
 
 **Métodos:** series de tiempo, VAR/VECM, pruebas de cointegración (Engle-Granger,
-Johansen), causalidad de Granger, modelos de regresión.
+Johansen), causalidad de Granger, modelos de regresión, machine learning
+(regularización, ensambles de árboles, validación cruzada temporal, clasificación desbalanceada).
 
 **Estadística oficial:** balanza de pagos (MBP6), OCDE Benchmark Definition (BD4),
 inversión extranjera directa, cuentas internacionales.
