@@ -2,7 +2,7 @@
 
 **Economist · Data analysis and official statistics · Costa Rica**
 
-**[pabloguerrerocr.github.io](https://pabloguerrerocr.github.io)** · [LinkedIn](https://www.linkedin.com/in/pabloguerrerocr) · pabloguerrerocr@gmail.com
+**[pabloguerrerocr.github.io](https://pabloguerrerocr.github.io)** (interactive dashboards) · [LinkedIn](https://www.linkedin.com/in/pabloguerrerocr) · pabloguerrerocr@gmail.com
 
 *[Español abajo ↓](#-español)*
 
@@ -42,7 +42,7 @@ inside the graph. Seven data-quality checks that return the failing rows,
 not a boolean — 0 errors and 3 warnings on this data, all three genuine
 macroeconomic shocks rather than capture errors.
 
-**[Costa Rica and its partners do not report the same trade](https://github.com/pabloguerrerocr/brecha-espejo-cr)**
+**[Costa Rica and its partners do not report the same trade](https://github.com/pabloguerrerocr/brecha-espejo-cr)** · [interactive dashboard](https://pabloguerrerocr.github.io/brecha/)
 In 2024 Costa Rica declared **$19.9 bn** in exports; its partners declared importing
 **$34.0 bn** from Costa Rica. The **$14.1 bn** mirror gap is not noise: it holds for
 ten straight years, never drops below 25 %, and grew from 44 % to 71 %. Three
@@ -51,7 +51,7 @@ States a stable **+17.3 %** level shift, China a **+627 %** gap with a standard
 deviation of 396, Belgium a **−37.7 %** gap that is the most stable of all. The
 analysis runs in SQL over DuckDB.
 
-**[Costa Rica's trade concentrated, it did not diversify](https://github.com/pabloguerrerocr/comercio-exterior-cr)**
+**[Costa Rica's trade concentrated, it did not diversify](https://github.com/pabloguerrerocr/comercio-exterior-cr)** · [interactive dashboard](https://pabloguerrerocr.github.io/comercio/)
 Exports more than doubled between 2010 and 2024 — and became far more dependent on
 one country and one product. The share going to the United States rose from 37.4 %
 to **47.9 %**, the Herfindahl index of destinations from 0.160 to **0.248**, and
@@ -69,7 +69,7 @@ deliberately does not choose the specification, the Cholesky ordering, or what t
 when the unit-root tests disagree — those are economic calls, and the engine's job is
 to make explicit what each one costs.
 
-**[The naive benchmark is hard to beat, and almost nobody reports it](https://github.com/pabloguerrerocr/portfolio-data-analytics)**
+**[The naive benchmark is hard to beat, and almost nobody reports it](https://github.com/pabloguerrerocr/portfolio-data-analytics)** · [interactive dashboard](https://pabloguerrerocr.github.io/nowcast/)
 Nowcasting Costa Rica's quarterly GDP from OECD short-term indicators. The
 nowcast cuts the error **30.6 %** against repeating last quarter — the benchmark
 everyone publishes — but only **6.5 %** against the historical mean, which is the
@@ -77,6 +77,14 @@ one that decides whether the model adds anything. An earlier version showed
 +13.7 %; excluding 2020 it collapsed to +0.6 %, so the entire result was the
 pandemic. Both numbers are in the README, with the R² of 0.154 and the quarter
 the model missed by 8.7 points.
+
+**[World population and economy atlas, 2026](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/poblacion-mundial)** · [interactive atlas](https://pabloguerrerocr.github.io/atlas/)
+Low and lower-middle income countries hold **45 %** of the world's population and
+account for **85 %** of its growth; in **20 countries** population grows faster than
+the economy in 2026, so income per person falls. 234 countries, 18 indicators,
+World Bank and IMF data refreshed **automatically every month** by GitHub Actions,
+with internal consistency checks that stop the pipeline if the source contradicts
+itself.
 
 **[Automated monthly bookkeeping close from Costa Rica's electronic invoices](https://github.com/pabloguerrerocr/contaflow)**
 A folder of Hacienda XML invoices (versions 4.3 and 4.4) goes in; the Excel the
@@ -99,7 +107,7 @@ months, detected and excluded with an objective rule. 44 automated tests.
 ### Tools
 
 `Python` · `pandas` · `numpy` · `statsmodels` · `SQL` · `DuckDB` · `dbt` · `Power BI` ·
-`Excel / Power Query` · `Git`
+`Excel / Power Query` · `D3.js` · `GitHub Actions` · `Git`
 
 **Methods:** time series, VAR/VECM, cointegration tests (Engle-Granger,
 Johansen), Granger causality, regression models.
@@ -156,7 +164,7 @@ con `EXCEPT` en ambas direcciones—, así que el linaje sale de `ref()` y las p
 corren dentro del grafo. Siete chequeos de calidad que devuelven las filas que fallan — 0 errores
 y 3 avisos, y los tres avisos son choques macro reales, no errores de captura.
 
-**[Costa Rica y sus socios no reportan el mismo comercio](https://github.com/pabloguerrerocr/brecha-espejo-cr)**
+**[Costa Rica y sus socios no reportan el mismo comercio](https://github.com/pabloguerrerocr/brecha-espejo-cr)** · [tablero interactivo](https://pabloguerrerocr.github.io/brecha/)
 En 2024 Costa Rica declaró exportar **$19,9 mm**; sus socios declararon haber
 importado **$34,0 mm**. Los **$14.140 millones** de brecha espejo no son ruido:
 existen los diez años, nunca bajan de 25 % y pasaron de 44 % a 71 %. Tres socios
@@ -165,7 +173,7 @@ estable de **+17,3 %**, China una brecha de **+627 %** con desviación de 396,
 Bélgica una brecha de **−37,7 %** que es la más estable de todas. El análisis
 corre en SQL sobre DuckDB.
 
-**[El comercio exterior de Costa Rica se concentró, no se diversificó](https://github.com/pabloguerrerocr/comercio-exterior-cr)**
+**[El comercio exterior de Costa Rica se concentró, no se diversificó](https://github.com/pabloguerrerocr/comercio-exterior-cr)** · [tablero interactivo](https://pabloguerrerocr.github.io/comercio/)
 Las exportaciones más que se duplicaron entre 2010 y 2024 — y se volvieron mucho
 más dependientes de un país y de un producto. Lo destinado a Estados Unidos pasó
 de 37,4 % a **47,9 %**, el índice Herfindahl de destinos de 0,160 a **0,248**, y
@@ -184,7 +192,7 @@ la especificación, ni el orden de Cholesky, ni qué hacer cuando las pruebas de
 unitaria discrepan: son decisiones económicas, y el trabajo del motor es dejar
 explícito lo que cuesta cada una.
 
-**[El referente ingenuo es difícil de vencer, y casi nadie lo reporta](https://github.com/pabloguerrerocr/portfolio-data-analytics)**
+**[El referente ingenuo es difícil de vencer, y casi nadie lo reporta](https://github.com/pabloguerrerocr/portfolio-data-analytics)** · [tablero interactivo](https://pabloguerrerocr.github.io/nowcast/)
 Nowcasting del PIB trimestral de Costa Rica con indicadores de coyuntura de la
 OCDE. El nowcast reduce el error **30,6 %** frente a repetir el trimestre anterior
 —el referente que todos publican— pero solo **6,5 %** frente al promedio histórico,
@@ -192,6 +200,14 @@ que es el que decide si el modelo aporta algo. Una versión previa daba +13,7 %;
 excluyendo 2020 caía a +0,6 %, o sea que todo el resultado era la pandemia. Ambos
 números están en el README, con el R² de 0,154 y el trimestre que el modelo erró
 por 8,7 puntos.
+
+**[Atlas de población y economía 2026](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/poblacion-mundial)** · [atlas interactivo](https://pabloguerrerocr.github.io/atlas/)
+Los países de ingreso bajo y medio-bajo tienen el **45 %** de la población mundial y
+aportan el **85 %** de su crecimiento; en **20 países** la población crece más rápido
+que la economía en 2026, así que el ingreso por persona cae. 234 países, 18
+indicadores, datos del Banco Mundial y el FMI que se **actualizan solos cada mes** con
+GitHub Actions, con chequeos de coherencia que detienen el proceso si la fuente se
+contradice.
 
 **[Cierre contable mensual automatizado desde la factura electrónica](https://github.com/pabloguerrerocr/contaflow)**
 Entra una carpeta de XML de Hacienda (versiones 4.3 y 4.4); sale el Excel que el
@@ -213,7 +229,7 @@ regla objetiva. 44 pruebas automatizadas.
 ### Herramientas
 
 `Python` · `pandas` · `numpy` · `statsmodels` · `SQL` · `DuckDB` · `dbt` · `Power BI` ·
-`Excel / Power Query` · `Git`
+`Excel / Power Query` · `D3.js` · `GitHub Actions` · `Git`
 
 **Métodos:** series de tiempo, VAR/VECM, pruebas de cointegración (Engle-Granger,
 Johansen), causalidad de Granger, modelos de regresión.
