@@ -8,8 +8,7 @@
 
 Bachelor's degree in Economics (Universidad Latina de Costa Rica) and a
 Licentiate in progress. I am currently doing my professional internship at the
-**Central Bank of Costa Rica**, in the Data Analysis and Statistics Division,
-International Accounts Statistics area.
+**Central Bank of Costa Rica**.
 
 I work at the intersection of applied economics and data analysis: time series,
 official statistics, and questions that end in a decision rather than a table.
@@ -102,9 +101,13 @@ itself.
 A folder of Hacienda XML invoices (versions 4.3 and 4.4) goes in; the Excel the
 client signs and the figure for VAT Form 150 come out. Rule-based classification,
 double-entry journal with input and output VAT kept apart, and one invariant: the
-journal imbalance must be **0.00**. On the demo set (88 documents, 149 lines)
-**94 %** is automated; anything no rule recognises goes to a suspense account and
-an exceptions sheet — the tool warns instead of guessing.
+journal imbalance must be **0.00**. The synthetic demo showed 94 % automation and
+no errors; the **first test on real invoices found three bugs the demo was hiding**
+(a ₡0.01 rounding imbalance, a CABYS rule that booked paper as fuel, and dropped
+911/Red Cross levies). After the fix, **9 of 9 real invoices reconcile** to the
+totals signed in their own XML, and a negative control proves the check catches
+the old bug. Anything no rule recognises goes to an exceptions sheet — the tool
+warns instead of guessing.
 
 **[Backtest audit: how much return survives costs, overfitting and look-ahead](https://github.com/pabloguerrerocr/backtester-mt5)**
 Five popular trading models turned into mechanical rules and measured on five
@@ -148,9 +151,8 @@ Johansen), Granger causality, regression models, machine learning
 **Economista · Análisis de datos y estadísticas · Costa Rica**
 
 Bachillerato Universitario en Economía (Universidad Latina de Costa Rica) y
-Licenciatura en curso. Actualmente realizo mi práctica profesional en la División de
-Análisis de Datos y Estadísticas del **Banco Central de Costa Rica**, en el área de
-Estadísticas de Cuentas Internacionales.
+Licenciatura en curso. Actualmente realizo mi práctica profesional en el
+**Banco Central de Costa Rica**.
 
 Trabajo en la intersección entre economía aplicada y análisis de datos: series de
 tiempo, estadística oficial y preguntas que terminan en una decisión, no en una tabla.
@@ -238,9 +240,13 @@ contradice.
 Entra una carpeta de XML de Hacienda (versiones 4.3 y 4.4); sale el Excel que el
 cliente firma y el número del Formulario 150 de IVA. Clasificación por reglas,
 partida doble con IVA acreditable y por pagar separados, y un invariante: el
-descuadre del diario tiene que dar **0,00**. En el set de demo (88 comprobantes,
-149 líneas) se automatiza el **94 %**; lo que ninguna regla reconoce va a una
-cuenta puente y a una hoja de excepciones: la herramienta avisa en vez de adivinar.
+descuadre del diario tiene que dar **0,00**. La demo sintética daba 94 % automático
+y cero errores; **la primera prueba con facturas reales encontró tres errores que la
+demo escondía** (un descuadre de ₡0,01, una regla CABYS que registraba papel como
+combustible y los cargos del 911 y la Cruz Roja que se perdían). Corregidos, **9 de 9
+comprobantes reales concilian** con el total firmado en su XML, y un control negativo
+prueba que la verificación detecta el error viejo. Lo que ninguna regla reconoce va a
+una hoja de excepciones: la herramienta avisa en vez de adivinar.
 
 **[Auditoría de backtests: cuánto retorno sobrevive a costos, sobreajuste e información futura](https://github.com/pabloguerrerocr/backtester-mt5)**
 Cinco modelos de trading populares llevados a reglas mecánicas y medidos en cinco
