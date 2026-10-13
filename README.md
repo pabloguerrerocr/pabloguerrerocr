@@ -82,7 +82,7 @@ retrained every quarter with time-series cross-validation, **do not beat the
 two-variable regression** with statistical significance (Diebold-Mariano,
 p ≥ 0.32), and an R replica (dplyr, ggplot2) reproduces it quarter by quarter in CI.
 
-**[Credit card fraud: accuracy lies, so measure it in money]({F})**
+**[Credit card fraud: accuracy lies, so measure it in money](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/deteccion-fraude)**
 On 284,807 real card transactions, never raising an alert is **99.87 %** accurate
 and saves nothing. With a time-based split and Gradient Boosting, alerting when
 probability × amount exceeds a €15 review cost saves **62.0 %** of fraud losses
