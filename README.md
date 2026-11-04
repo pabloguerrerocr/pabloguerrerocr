@@ -40,9 +40,9 @@ traces back to its source, and every limitation is stated.
 ### Data engineering and analytics
 
 - **[Data warehouse for macro time series](https://github.com/pabloguerrerocr/warehouse-sector-externo)** —
-  18 series moved to a DuckDB star schema and a dbt project reconcile with the
-  validated Python pipeline to **5.7e-14**; data-quality checks return the failing rows.
-  *DuckDB, dbt, SQL.*
+  the thesis panel, moved to a DuckDB star schema and a dbt project, reproduces the
+  validated Python pipeline in all **17** series comparisons (differences below 1e-13);
+  data-quality checks return the failing rows. *DuckDB, dbt, SQL.*
 - **[Diagnostic engine for time-series blocks](https://github.com/pabloguerrerocr/motor-series)** —
   declare a block in a config file and get unit-root, lag-selection and cointegration
   tests, with a warning wherever the tests contradict each other. *Python, statsmodels.*
@@ -119,9 +119,10 @@ sostienen: cada cifra se puede rastrear hasta su fuente y cada limitación se de
 ### Ingeniería de datos y analítica
 
 - **[Warehouse para series macroeconómicas](https://github.com/pabloguerrerocr/warehouse-sector-externo)** —
-  18 series llevadas a un esquema estrella en DuckDB y a un proyecto dbt reconcilian
-  con el pipeline validado en Python a **5,7e-14**; los chequeos de calidad devuelven
-  las filas que fallan. *DuckDB, dbt, SQL.*
+  el panel de la tesis, llevado a un esquema estrella en DuckDB y a un proyecto dbt,
+  reproduce el pipeline validado en Python en las **17** comparaciones de series
+  (diferencias menores a 1e-13); los chequeos de calidad devuelven las filas que fallan.
+  *DuckDB, dbt, SQL.*
 - **[Motor de diagnóstico para bloques de series de tiempo](https://github.com/pabloguerrerocr/motor-series)** —
   se declara el bloque en un archivo de configuración y corre las pruebas de raíz
   unitaria, rezagos y cointegración, con una advertencia donde las pruebas se
