@@ -6,118 +6,55 @@
 
 *[Español abajo ↓](#-español)*
 
-Bachelor's degree in Economics (Universidad Latina de Costa Rica) and a
-Licentiate in progress. I am currently doing my professional internship at the
-**Central Bank of Costa Rica**.
-
-I work at the intersection of applied economics and data analysis: time series,
-official statistics, and questions that end in a decision rather than a table.
-Every figure I report can be traced back to its source, and gaps are declared as
-gaps.
+Bachelor's degree in Economics (Universidad Latina de Costa Rica) and a Licentiate in
+progress. I am currently doing my professional internship at the **Central Bank of
+Costa Rica**. I turn public economic data into findings that hold up: every figure
+traces back to its source, and every limitation is stated.
 
 ---
 
-### Projects
+### Economics
 
-**[U.S. shocks and Costa Rica's external sector, 2015–2025](https://github.com/pabloguerrerocr/sector-externo-cr-eeuu)** · [interactive dashboard](https://pabloguerrerocr.github.io/tfg/) · *my thesis*
-Does Costa Rica feel the United States through trade or through the Fed's policy
-rate? Three VAR/VECM blocks on public data from FRED and the Central Bank of
-Costa Rica. **The financial channel dominates the real one in all 14**
-variable-horizon combinations. At 24 months, the federal funds rate explains
-**44.4 %** of the variance in international reserves and **43.2 %** of the real
-effective exchange rate; the U.S. industrial cycle explains 3.3 % and 4.5 %.
-Unit root tests flagging ambiguous cases, Engle-Granger and Johansen
-cointegration, Granger causality, bootstrapped impulse responses and variance
-decomposition. With the generalized (Pesaran-Shin) decomposition, which does not
-depend on the Cholesky ordering, the financial channel still dominates in **14 of
-14**. Reproducible end to end.
+- **[How the U.S. reaches Costa Rica's external sector, 2015–2025](https://github.com/pabloguerrerocr/sector-externo-cr-eeuu)** · *my thesis* · [dashboard](https://pabloguerrerocr.github.io/tfg/)
+  The Fed's policy rate explains **44.4 %** of the variance of Costa Rica's
+  international reserves at 24 months; the U.S. business cycle, **3.3 %**. The financial
+  channel wins in **14 of 14** cases, also with an ordering-free decomposition.
+  *VAR/VECM in Python, FRED and Central Bank data.*
+- **[Costa Rica and its partners do not report the same trade](https://github.com/pabloguerrerocr/brecha-espejo-cr)** · [dashboard](https://pabloguerrerocr.github.io/brecha/)
+  In 2024 partners reported importing **$34.0 bn** from Costa Rica, which declared
+  **$19.9 bn** in exports. The gap holds for ten straight years and grew from 44 % to
+  **71 %**. *SQL on DuckDB.*
+- **[Costa Rica's trade concentrated instead of diversifying](https://github.com/pabloguerrerocr/comercio-exterior-cr)** · [dashboard](https://pabloguerrerocr.github.io/comercio/)
+  Exports more than doubled in 2010–2024, but the U.S. share rose from 37.4 % to
+  **47.9 %** and one product chapter (medical instruments) explains **70.5 %** of the
+  increase. *UN COMTRADE, Power BI.*
+- **[Nowcasting Costa Rica's GDP: the naive benchmark is hard to beat](https://github.com/pabloguerrerocr/portfolio-data-analytics)** · [dashboard](https://pabloguerrerocr.github.io/nowcast/)
+  The nowcast cuts the error **30.6 %** against repeating last quarter but only
+  **6.5 %** against the historical mean, and no machine-learning model beats a
+  two-variable regression (Diebold-Mariano, p ≥ 0.32). *Python and R.*
+- **[World population and economy atlas, 2026](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/poblacion-mundial)** · [atlas](https://pabloguerrerocr.github.io/atlas/)
+  Low and lower-middle income countries hold **45 %** of the world's population and
+  account for **85 %** of its growth. World Bank and IMF data refreshed every month by
+  GitHub Actions.
 
-**[Data warehouse and quality engine for macro time series](https://github.com/pabloguerrerocr/warehouse-sector-externo)**
-DuckDB star schema over a macroeconomic panel, with **proof that moving the data into
-SQL did not alter a single number**: 18 series reconcile against the validated
-Python pipeline. The Central Bank publishes trade figures accumulated within the
-year; deaccumulation is done in SQL with a window partitioned by year and
-reconciles to `5.7e-14`. The transformations also ship as a **dbt** project — same rows, verified with
-`EXCEPT` in both directions — so lineage comes from `ref()` and the tests run
-inside the graph. Seven data-quality checks that return the failing rows,
-not a boolean — 0 errors and 3 warnings on this data, all three genuine
-macroeconomic shocks rather than capture errors.
+### Data engineering and analytics
 
-**[Costa Rica and its partners do not report the same trade](https://github.com/pabloguerrerocr/brecha-espejo-cr)** · [interactive dashboard](https://pabloguerrerocr.github.io/brecha/)
-In 2024 Costa Rica declared **$19.9 bn** in exports; its partners declared importing
-**$34.0 bn** from Costa Rica. The **$14.1 bn** mirror gap is not noise: it holds for
-ten straight years, never drops below 25 %, and grew from 44 % to 71 %. Three
-partners explain half of it, and each one is a different phenomenon — the United
-States a stable **+17.3 %** level shift, China a **+627 %** gap with a standard
-deviation of 396, Belgium a **−37.7 %** gap that is the most stable of all. The
-analysis runs in SQL over DuckDB.
-
-**[Costa Rica's trade concentrated, it did not diversify](https://github.com/pabloguerrerocr/comercio-exterior-cr)** · [interactive dashboard](https://pabloguerrerocr.github.io/comercio/)
-Exports more than doubled between 2010 and 2024 — and became far more dependent on
-one country and one product. The share going to the United States rose from 37.4 %
-to **47.9 %**, the Herfindahl index of destinations from 0.160 to **0.248**, and
-harmonized-system chapter 90 (medical and precision instruments) alone accounts for
-**70.5 %** of the entire increase. UN COMTRADE data, with a Power BI model.
-
-**[Diagnostic engine for time-series blocks](https://github.com/pabloguerrerocr/motor-series)**
-Declare the block in a config file — which series, which transformation, which
-specification — and the engine runs the full battery: ADF and KPSS **flagging where
-they contradict each other**, lag selection across four criteria, Engle-Granger and
-Johansen, and sample slack against the ten-observations-per-parameter rule. What makes
-it useful is that **it warns instead of obeying**: ask for a VECM on series that do not
-cointegrate and it estimates it anyway, with the warning on top of the report. It
-deliberately does not choose the specification, the Cholesky ordering, or what to do
-when the unit-root tests disagree — those are economic calls, and the engine's job is
-to make explicit what each one costs.
-
-**[The naive benchmark is hard to beat, and almost nobody reports it](https://github.com/pabloguerrerocr/portfolio-data-analytics)** · [interactive dashboard](https://pabloguerrerocr.github.io/nowcast/)
-Nowcasting Costa Rica's quarterly GDP from OECD short-term indicators. The
-nowcast cuts the error **30.6 %** against repeating last quarter — the benchmark
-everyone publishes — but only **6.5 %** against the historical mean, which is the
-one that decides whether the model adds anything. An earlier version showed
-+13.7 %; excluding 2020 it collapsed to +0.6 %, so the entire result was the
-pandemic. Both numbers are in the README, with the R² of 0.154 and the quarter
-the model missed by 8.7 points. Ridge, LASSO, Random Forest and Gradient Boosting,
-retrained every quarter with time-series cross-validation, **do not beat the
-two-variable regression** with statistical significance (Diebold-Mariano,
-p ≥ 0.32), and an R replica (dplyr, ggplot2) reproduces it quarter by quarter in CI.
-
-**[Credit card fraud: accuracy lies, so measure it in money](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/deteccion-fraude)**
-On 284,807 real card transactions, never raising an alert is **99.87 %** accurate
-and saves nothing. With a time-based split and Gradient Boosting, alerting when
-probability × amount exceeds a €15 review cost saves **62.0 %** of fraud losses
-against **54.5 %** for the best single threshold (95 % CI of the gap: +€379 to
-+€782), while catching *fewer* frauds. The default 0.5 threshold nearly halves
-the savings of a logistic regression. At €1 and €5 per review the gap is not
-significant, and the README says so.
-
-**[World population and economy atlas, 2026](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/poblacion-mundial)** · [interactive atlas](https://pabloguerrerocr.github.io/atlas/)
-Low and lower-middle income countries hold **45 %** of the world's population and
-account for **85 %** of its growth; in **20 countries** population grows faster than
-the economy in 2026, so income per person falls. 234 countries, 18 indicators,
-World Bank and IMF data refreshed **automatically every month** by GitHub Actions,
-with internal consistency checks that stop the pipeline if the source contradicts
-itself.
-
-**[Automated monthly bookkeeping close from Costa Rica's electronic invoices](https://github.com/pabloguerrerocr/contaflow)**
-A folder of Hacienda XML invoices (versions 4.3 and 4.4) goes in; the Excel the
-client signs and the figure for VAT Form 150 come out. Rule-based classification,
-double-entry journal with input and output VAT kept apart, and one invariant: the
-journal imbalance must be **0.00**. The synthetic demo showed 94 % automation and
-no errors; the **first test on real invoices found three bugs the demo was hiding**
-(a ₡0.01 rounding imbalance, a CABYS rule that booked paper as fuel, and dropped
-911/Red Cross levies). After the fix, **9 of 9 real invoices reconcile** to the
-totals signed in their own XML, and a negative control proves the check catches
-the old bug. Anything no rule recognises goes to an exceptions sheet — the tool
-warns instead of guessing.
-
-**[Backtest audit: how much return survives costs, overfitting and look-ahead](https://github.com/pabloguerrerocr/backtester-mt5)**
-Five popular trading models turned into mechanical rules and measured on five
-markets with real MetaTrader 5 data and retail costs. **0 of 25** author
-configurations show a statistical edge after costs; across **1,120** variants,
-in-sample and out-of-sample results correlate at **+0.09**, and 11 of the 14 best
-variants lose out of sample. Along the way: a demo price feed frozen for three
-months, detected and excluded with an objective rule. 44 automated tests.
+- **[Data warehouse for macro time series](https://github.com/pabloguerrerocr/warehouse-sector-externo)** —
+  18 series moved to a DuckDB star schema and a dbt project reconcile with the
+  validated Python pipeline to **5.7e-14**; data-quality checks return the failing rows.
+  *DuckDB, dbt, SQL.*
+- **[Diagnostic engine for time-series blocks](https://github.com/pabloguerrerocr/motor-series)** —
+  declare a block in a config file and get unit-root, lag-selection and cointegration
+  tests, with a warning wherever the tests contradict each other. *Python, statsmodels.*
+- **[Credit card fraud measured in money](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/deteccion-fraude)** —
+  on 284,807 real transactions, alerting by expected loss saves **62.0 %** of fraud
+  losses against **54.5 %** for the best single threshold. *scikit-learn.*
+- **[Automated monthly close from electronic invoices](https://github.com/pabloguerrerocr/contaflow)** —
+  Hacienda XML invoices in, the signed Excel and the VAT form out; **9 of 9** real
+  invoices reconcile with the totals signed in their XML. *Python.*
+- **[Backtest audit](https://github.com/pabloguerrerocr/backtester-mt5)** —
+  **0 of 25** popular trading configurations keep a statistical edge after costs;
+  in-sample and out-of-sample results correlate at **+0.09**. *Python, MetaTrader 5.*
 
 ---
 
@@ -132,8 +69,6 @@ Johansen), Granger causality, regression models, machine learning
 
 **Official statistics:** balance of payments (BPM6), OECD Benchmark Definition
 (BD4), foreign direct investment, international accounts.
-
----
 
 ### How I work
 
@@ -153,113 +88,54 @@ Johansen), Granger causality, regression models, machine learning
 **Economista · Análisis de datos y estadísticas · Costa Rica**
 
 Bachillerato Universitario en Economía (Universidad Latina de Costa Rica) y
-Licenciatura en curso. Actualmente realizo mi práctica profesional en el
-**Banco Central de Costa Rica**.
+Licenciatura en curso. Actualmente realizo mi práctica profesional en el **Banco
+Central de Costa Rica**. Convierto datos económicos públicos en hallazgos que se
+sostienen: cada cifra se puede rastrear hasta su fuente y cada limitación se declara.
 
-Trabajo en la intersección entre economía aplicada y análisis de datos: series de
-tiempo, estadística oficial y preguntas que terminan en una decisión, no en una tabla.
+### Economía
 
-### Proyectos
+- **[EE. UU. y el sector externo de Costa Rica, 2015–2025](https://github.com/pabloguerrerocr/sector-externo-cr-eeuu)** · *mi trabajo final de graduación* · [tablero](https://pabloguerrerocr.github.io/tfg/)
+  La tasa de la Fed explica el **44,4 %** de la varianza de las reservas
+  internacionales de Costa Rica a 24 meses; el ciclo económico de EE. UU., el **3,3 %**.
+  El canal financiero gana en **14 de 14** casos, también con una descomposición que no
+  depende del orden de las variables. *VAR/VECM en Python, datos de FRED y del BCCR.*
+- **[Costa Rica y sus socios no reportan el mismo comercio](https://github.com/pabloguerrerocr/brecha-espejo-cr)** · [tablero](https://pabloguerrerocr.github.io/brecha/)
+  En 2024 los socios declararon haber importado **$34,0 mm** desde Costa Rica, que
+  declaró exportar **$19,9 mm**. La brecha existe los diez años y pasó de 44 % a
+  **71 %**. *SQL sobre DuckDB.*
+- **[El comercio exterior de Costa Rica se concentró, no se diversificó](https://github.com/pabloguerrerocr/comercio-exterior-cr)** · [tablero](https://pabloguerrerocr.github.io/comercio/)
+  Las exportaciones más que se duplicaron entre 2010 y 2024, pero lo destinado a
+  Estados Unidos pasó de 37,4 % a **47,9 %** y un solo capítulo (instrumentos médicos)
+  explica el **70,5 %** del aumento. *UN COMTRADE, Power BI.*
+- **[Nowcasting del PIB de Costa Rica: el referente ingenuo es difícil de vencer](https://github.com/pabloguerrerocr/portfolio-data-analytics)** · [tablero](https://pabloguerrerocr.github.io/nowcast/)
+  El nowcast reduce el error **30,6 %** frente a repetir el trimestre anterior, pero
+  solo **6,5 %** frente al promedio histórico, y ningún modelo de machine learning le
+  gana a una regresión de dos variables (Diebold-Mariano, p ≥ 0,32). *Python y R.*
+- **[Atlas de población y economía 2026](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/poblacion-mundial)** · [atlas](https://pabloguerrerocr.github.io/atlas/)
+  Los países de ingreso bajo y medio-bajo tienen el **45 %** de la población mundial y
+  aportan el **85 %** de su crecimiento. Datos del Banco Mundial y del FMI que se
+  actualizan solos cada mes con GitHub Actions.
 
-**[EE. UU. y el sector externo de Costa Rica, 2015–2025](https://github.com/pabloguerrerocr/sector-externo-cr-eeuu)** · [tablero interactivo](https://pabloguerrerocr.github.io/tfg/) · *mi trabajo final de graduación*
-¿Costa Rica siente a Estados Unidos por el comercio o por la tasa de la Fed? Tres
-bloques VAR/VECM sobre datos de FRED y del portal público del BCCR. **El canal
-financiero domina al real en las 14 combinaciones de variable y horizonte.** A 24
-meses, la tasa de fondos federales explica el **44,4 %** de la varianza de las
-reservas internacionales y el **43,2 %** del tipo de cambio efectivo real; el ciclo
-industrial estadounidense, 3,3 % y 4,5 %. Pipeline completo: ADF y KPSS marcando
-las filas ambiguas, Engle-Granger y Johansen, causalidad de Granger,
-impulso-respuesta con banda bootstrap y descomposición de varianza. Con la
-descomposición generalizada de Pesaran y Shin, que no depende del orden de
-Cholesky, el canal financiero sigue dominando en **14 de 14**.
+### Ingeniería de datos y analítica
 
-**[Warehouse y motor de calidad para series macro](https://github.com/pabloguerrerocr/warehouse-sector-externo)**
-Esquema estrella en DuckDB sobre un panel macroeconómico, con **la prueba de que pasar
-los datos a SQL no alteró ni un número**: 18 series reconcilian contra el pipeline
-validado en Python. El BCCR publica el comercio acumulado dentro del año; la
-desacumulación se hace en SQL con una ventana particionada por año y reconcilia a
-`5,7e-14`. Las transformaciones también están como proyecto **dbt** —mismas filas, verificado
-con `EXCEPT` en ambas direcciones—, así que el linaje sale de `ref()` y las pruebas
-corren dentro del grafo. Siete chequeos de calidad que devuelven las filas que fallan — 0 errores
-y 3 avisos, y los tres avisos son choques macro reales, no errores de captura.
-
-**[Costa Rica y sus socios no reportan el mismo comercio](https://github.com/pabloguerrerocr/brecha-espejo-cr)** · [tablero interactivo](https://pabloguerrerocr.github.io/brecha/)
-En 2024 Costa Rica declaró exportar **$19,9 mm**; sus socios declararon haber
-importado **$34,0 mm**. Los **$14.140 millones** de brecha espejo no son ruido:
-existen los diez años, nunca bajan de 25 % y pasaron de 44 % a 71 %. Tres socios
-explican la mitad y cada uno es un fenómeno distinto — Estados Unidos un desnivel
-estable de **+17,3 %**, China una brecha de **+627 %** con desviación de 396,
-Bélgica una brecha de **−37,7 %** que es la más estable de todas. El análisis
-corre en SQL sobre DuckDB.
-
-**[El comercio exterior de Costa Rica se concentró, no se diversificó](https://github.com/pabloguerrerocr/comercio-exterior-cr)** · [tablero interactivo](https://pabloguerrerocr.github.io/comercio/)
-Las exportaciones más que se duplicaron entre 2010 y 2024 — y se volvieron mucho
-más dependientes de un país y de un producto. Lo destinado a Estados Unidos pasó
-de 37,4 % a **47,9 %**, el índice Herfindahl de destinos de 0,160 a **0,248**, y
-el capítulo 90 del sistema armonizado (instrumentos médicos y de precisión)
-explica por sí solo el **70,5 %** de todo el aumento. Datos de UN COMTRADE, con
-modelo en Power BI.
-
-**[Motor de diagnóstico para bloques de series de tiempo](https://github.com/pabloguerrerocr/motor-series)**
-Se declara el bloque en un archivo de configuración —qué series, qué transformación,
-qué especificación— y el motor corre la batería completa: ADF y KPSS **marcando dónde
-se contradicen**, selección de rezagos por cuatro criterios, Engle-Granger y Johansen,
-y la holgura muestral contra la regla de diez observaciones por parámetro. Lo que lo
-hace útil es que **advierte en vez de obedecer**: si se le pide un VECM sobre series
-que no cointegran, lo estima igual y deja la advertencia arriba del reporte. No decide
-la especificación, ni el orden de Cholesky, ni qué hacer cuando las pruebas de raíz
-unitaria discrepan: son decisiones económicas, y el trabajo del motor es dejar
-explícito lo que cuesta cada una.
-
-**[El referente ingenuo es difícil de vencer, y casi nadie lo reporta](https://github.com/pabloguerrerocr/portfolio-data-analytics)** · [tablero interactivo](https://pabloguerrerocr.github.io/nowcast/)
-Nowcasting del PIB trimestral de Costa Rica con indicadores de coyuntura de la
-OCDE. El nowcast reduce el error **30,6 %** frente a repetir el trimestre anterior
-—el referente que todos publican— pero solo **6,5 %** frente al promedio histórico,
-que es el que decide si el modelo aporta algo. Una versión previa daba +13,7 %;
-excluyendo 2020 caía a +0,6 %, o sea que todo el resultado era la pandemia. Ambos
-números están en el README, con el R² de 0,154 y el trimestre que el modelo erró
-por 8,7 puntos. Ridge, LASSO, Random Forest y Gradient Boosting, reentrenados cada
-trimestre con validación cruzada de series de tiempo, **no le ganan a la regresión
-de dos variables** con significancia (Diebold-Mariano, p ≥ 0,32), y una réplica en R
-(dplyr, ggplot2) la reproduce trimestre por trimestre en GitHub Actions.
-
-**[Fraude con tarjeta: la exactitud engaña, hay que medir en dinero](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/deteccion-fraude)**
-Sobre 284.807 transacciones reales, no alertar nunca acierta el **99,87 %** y no
-ahorra nada. Con partición temporal y Gradient Boosting, alertar cuando
-probabilidad × monto supera un costo de revisión de €15 ahorra el **62,0 %** del
-fraude, contra **54,5 %** del mejor umbral único (IC 95 % de la diferencia: +€379 a
-+€782), aunque detecta *menos* fraudes. El umbral de fábrica de 0,5 casi reduce a
-la mitad el ahorro de una regresión logística. Con €1 y €5 por revisión la
-diferencia no es significativa, y el README lo dice.
-
-**[Atlas de población y economía 2026](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/poblacion-mundial)** · [atlas interactivo](https://pabloguerrerocr.github.io/atlas/)
-Los países de ingreso bajo y medio-bajo tienen el **45 %** de la población mundial y
-aportan el **85 %** de su crecimiento; en **20 países** la población crece más rápido
-que la economía en 2026, así que el ingreso por persona cae. 234 países, 18
-indicadores, datos del Banco Mundial y el FMI que se **actualizan solos cada mes** con
-GitHub Actions, con chequeos de coherencia que detienen el proceso si la fuente se
-contradice.
-
-**[Cierre contable mensual automatizado desde la factura electrónica](https://github.com/pabloguerrerocr/contaflow)**
-Entra una carpeta de XML de Hacienda (versiones 4.3 y 4.4); sale el Excel que el
-cliente firma y el número del Formulario 150 de IVA. Clasificación por reglas,
-partida doble con IVA acreditable y por pagar separados, y un invariante: el
-descuadre del diario tiene que dar **0,00**. La demo sintética daba 94 % automático
-y cero errores; **la primera prueba con facturas reales encontró tres errores que la
-demo escondía** (un descuadre de ₡0,01, una regla CABYS que registraba papel como
-combustible y los cargos del 911 y la Cruz Roja que se perdían). Corregidos, **9 de 9
-comprobantes reales concilian** con el total firmado en su XML, y un control negativo
-prueba que la verificación detecta el error viejo. Lo que ninguna regla reconoce va a
-una hoja de excepciones: la herramienta avisa en vez de adivinar.
-
-**[Auditoría de backtests: cuánto retorno sobrevive a costos, sobreajuste e información futura](https://github.com/pabloguerrerocr/backtester-mt5)**
-Cinco modelos de trading populares llevados a reglas mecánicas y medidos en cinco
-mercados con datos reales de MetaTrader 5 y costos retail. **0 de 25**
-configuraciones de autor tienen ventaja estadística después de costos; en
-**1.120** variantes, el resultado dentro y fuera de muestra correlaciona a
-**+0,09**, y 11 de las 14 mejores variantes pierden fuera de muestra. En el camino:
-un feed de precios de la demo congelado tres meses, detectado y excluido con una
-regla objetiva. 44 pruebas automatizadas.
+- **[Warehouse para series macroeconómicas](https://github.com/pabloguerrerocr/warehouse-sector-externo)** —
+  18 series llevadas a un esquema estrella en DuckDB y a un proyecto dbt reconcilian
+  con el pipeline validado en Python a **5,7e-14**; los chequeos de calidad devuelven
+  las filas que fallan. *DuckDB, dbt, SQL.*
+- **[Motor de diagnóstico para bloques de series de tiempo](https://github.com/pabloguerrerocr/motor-series)** —
+  se declara el bloque en un archivo de configuración y corre las pruebas de raíz
+  unitaria, rezagos y cointegración, con una advertencia donde las pruebas se
+  contradicen. *Python, statsmodels.*
+- **[Fraude con tarjeta medido en dinero](https://github.com/pabloguerrerocr/portfolio-data-analytics/tree/main/deteccion-fraude)** —
+  sobre 284.807 transacciones reales, alertar según la pérdida esperada ahorra el
+  **62,0 %** del fraude, contra **54,5 %** del mejor umbral único. *scikit-learn.*
+- **[Cierre contable mensual desde la factura electrónica](https://github.com/pabloguerrerocr/contaflow)** —
+  entran los XML de Hacienda y salen el Excel que firma el cliente y el Formulario 150
+  de IVA; **9 de 9** comprobantes reales concilian con el total firmado en su XML. *Python.*
+- **[Auditoría de backtests](https://github.com/pabloguerrerocr/backtester-mt5)** —
+  **0 de 25** configuraciones de trading populares mantienen ventaja estadística
+  después de costos; dentro y fuera de muestra, los resultados correlacionan a
+  **+0,09**. *Python, MetaTrader 5.*
 
 ### Herramientas
 
